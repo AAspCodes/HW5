@@ -1,6 +1,7 @@
 import java.io.PrintStream;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.Scanner;
 
 public class HuffmanTree {
 	private HuffmanNode tree;
@@ -45,6 +46,21 @@ public class HuffmanTree {
 
 	}
 
+	/**
+	 * Constructs a Huffman tree from the Scanner.
+	 * Assumes the Scanner contains a tree description in standard format.
+	 * @param codeInput
+	 */
+	public HuffmanTree(Scanner codeInput) {
+		while ( codeInput.hasNextLine()) {
+			int asciiVal = Integer.parseInt(codeInput.nextLine());
+			String code = codeInput.nextLine();
+			
+		}
+		
+		
+		
+	}
 	/**
 	 * Writes the current tree to the given output stream in standard format.
 	 */

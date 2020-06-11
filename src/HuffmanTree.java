@@ -15,4 +15,14 @@ public class HuffmanTree {
 	 */
 	public void write(PrintStream output) {
 	}
+
+	private class HuffmanNode implements Comparable<HuffmanNode> {
+		private HuffmanNode left, right;
+		private int asciiVal, freq;
+
+		private HuffmanNode(int asciiVal, int freq) {
+			this.asciiVal = asciiVal;
+			this.freq = freq;
+		}
+	}
 }

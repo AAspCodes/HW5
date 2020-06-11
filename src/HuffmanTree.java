@@ -44,7 +44,6 @@ public class HuffmanTree {
 		this.tree = nodeQ.remove();
 
 	}
-	
 
 	/**
 	 * Writes the current tree to the given output stream in standard format.
@@ -86,4 +85,5 @@ public class HuffmanTree {
 		}
 
 	}
+
 }

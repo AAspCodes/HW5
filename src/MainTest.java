@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.Scanner;
 
 public class MainTest {
 
@@ -25,6 +26,21 @@ public class MainTest {
 		} catch (IOException e) {
 			System.out.println(e);
 		}
+		
+		
+		
+		try {
+			Scanner scan = new Scanner(new File("short2.code"));
+			HuffmanTree t = new HuffmanTree(scan);
+			PrintStream output = new PrintStream(new File("short3.code"));
+			t.write(output);
+		} catch (IOException e){
+			System.out.println(e);
+			
+		}
+		
+		
+		
 	}
 
 }

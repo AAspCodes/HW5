@@ -62,6 +62,20 @@ public class HuffmanTree {
 		
 	}
 	/**
+	 * Reads bits from the given input stream and writes the corresponding
+	 * characters to the output.  Stops reading when it encounters a character
+	 * with value equal to eof.  This is a pseudo-eof character, so it should
+	 * not be written to the output file.  Assumes the input stream contains
+	 * a legal encoding of characters for this tree’s Huffman code.
+	 * @param input
+	 * @param output
+	 * @param eof
+	 */
+	public void decode(BitInputStream input, PrintStream output, int eof) {
+		
+	}
+
+	/**
 	 * Writes the current tree to the given output stream in standard format.
 	 */
 	public void write(PrintStream output) {

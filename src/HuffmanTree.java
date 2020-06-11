@@ -1,4 +1,8 @@
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Scanner;
@@ -52,9 +56,16 @@ public class HuffmanTree {
 	 * @param codeInput
 	 */
 	public HuffmanTree(Scanner codeInput) {
+		Map<String, HuffmanNode> nodeMap = new HashMap<String, HuffmanNode>();
+		
 		while ( codeInput.hasNextLine()) {
 			int asciiVal = Integer.parseInt(codeInput.nextLine());
 			String code = codeInput.nextLine();
+			nodeMap.put(code, new HuffmanNode(asciiVal, 0));
+		}
+		String baseCode = "0";
+		HuffmanNode root = new HuffmanNode(0,0);
+		while ( !nodeMap.isEmpty()) {
 			
 		}
 		
@@ -97,6 +108,9 @@ public class HuffmanTree {
 
 		@Override
 		public int compareTo(HuffmanNode that) {
+			if ( code != null) {
+				
+			}
 			return this.freq - that.freq;
 		}
 
@@ -113,7 +127,22 @@ public class HuffmanTree {
 				}
 			}
 		}
-
+		
+		public void add(String code, HuffmanNode leaf) {
+			if ( code.substring(0,1).equals("0")) {
+				if (left == null) {
+					left = leaf;
+				} else {
+					left.add(code.substring(1,code.length()),leaf);
+				}
+			} else {
+				if (right == null) {
+					right = leaf;
+				} else {
+					right.add(code.substring(1,code.length()),leaf);
+				}
+			}
+		}
 	}
 
 }

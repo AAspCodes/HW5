@@ -28,5 +28,10 @@ public class HuffmanTree {
 		public String toString() {
 			return this.asciiVal + " : " + this.freq;
 		}
+
+		@Override
+		public int compareTo(HuffmanNode that) {
+			return this.freq - that.freq;
+		}
 	}
 }

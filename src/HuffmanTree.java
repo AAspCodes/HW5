@@ -24,5 +24,9 @@ public class HuffmanTree {
 			this.asciiVal = asciiVal;
 			this.freq = freq;
 		}
+
+		public String toString() {
+			return this.asciiVal + " : " + this.freq;
+		}
 	}
 }

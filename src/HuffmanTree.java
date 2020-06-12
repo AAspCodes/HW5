@@ -20,7 +20,7 @@ public class HuffmanTree {
 
 		// assign non zero frequency values from the count array to the priority queue
 		for (int i = 0; i < count.length; i++) {
-			if (count[i] >= 0) {
+			if (count[i] > 0) {
 				nodeQ.add(new HuffmanNode(i, count[i]));
 			}
 		}

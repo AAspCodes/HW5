@@ -173,21 +173,6 @@ public class HuffmanTree {
 			}
 		}
 		
-		public void add(String code, HuffmanNode leaf) {
-			if ( code.substring(0,1).equals("0")) {
-				if (left == null) {
-					left = leaf;
-				} else {
-					left.add(code.substring(1,code.length()),leaf);
-				}
-			} else {
-				if (right == null) {
-					right = leaf;
-				} else {
-					right.add(code.substring(1,code.length()),leaf);
-				}
-			}
-		}
 	}
 
 }

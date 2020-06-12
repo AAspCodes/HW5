@@ -20,7 +20,7 @@ public class HuffmanTree {
 
 		// assign non zero frequency values from the count array to the priority queue
 		for (int i = 0; i < count.length; i++) {
-			if (count[i] != 0) {
+			if (count[i] >= 0) {
 				nodeQ.add(new HuffmanNode(i, count[i]));
 			}
 		}
@@ -32,7 +32,7 @@ public class HuffmanTree {
 		while (nodeQ.size() > 1) {
 			HuffmanNode leaf1 = nodeQ.remove();
 			HuffmanNode leaf2 = nodeQ.remove();
-			HuffmanNode branch = new HuffmanNode(0, leaf1.freq + leaf2.freq);
+			HuffmanNode branch = new HuffmanNode(-1, leaf1.freq + leaf2.freq);
 
 			if (leaf1.freq <= leaf2.freq) {
 				branch.left = leaf1;
@@ -83,6 +83,29 @@ public class HuffmanTree {
 	 * @param eof
 	 */
 	public void decode(BitInputStream input, PrintStream output, int eof) {
+		
+		// I think this works, but I can't test it just yet.
+		int bit;
+		HuffmanNode node = tree;
+		while ((bit = input.readBit()) >= 0) {
+			// check if at branch
+			if (node.asciiVal == -1) {
+				if (bit == 0) {
+					node = node.left;
+					continue;
+				} else {
+					node = node.right;
+					continue;
+				}
+			} else {
+				if (node.asciiVal == eof) {
+					// you found the end of the file
+					break;
+				} else {
+					output.write(node.asciiVal);
+				}
+			}
+		}
 		
 	}
 

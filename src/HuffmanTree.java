@@ -156,9 +156,6 @@ public class HuffmanTree {
 
 		@Override
 		public int compareTo(HuffmanNode that) {
-			if ( code != null) {
-				
-			}
 			return this.freq - that.freq;
 		}
 

@@ -30,14 +30,16 @@ public class HuffmanTree {
 
 		// Add end of file char.
 		nodeQ.add(new HuffmanNode(count.length, 1));
-
-		// build tree
+		
+		
+		HuffmanNode leaf1, leaf2, branch;
+		// Build tree
 		while (nodeQ.size() > 1) {
-			HuffmanNode leaf1 = nodeQ.remove();
-			HuffmanNode leaf2 = nodeQ.remove();
-			HuffmanNode branch = new HuffmanNode(-1, leaf1.freq + leaf2.freq);
-
-			if (leaf1.freq <= leaf2.freq) {
+			leaf1 = nodeQ.remove();
+			leaf2 = nodeQ.remove();
+			branch = new HuffmanNode(-1, leaf1.frequency + leaf2.frequency);
+			
+			if (leaf1.frequency <= leaf2.frequency) {
 				branch.left = leaf1;
 				branch.right = leaf2;
 			} else {
@@ -144,11 +146,11 @@ public class HuffmanTree {
 	 */
 	private class HuffmanNode implements Comparable<HuffmanNode> {
 		private HuffmanNode left, right;
-		private int asciiVal, freq;
+		private int asciiVal, frequency;
 
-		private HuffmanNode(int asciiVal, int freq) {
+		private HuffmanNode(int asciiVal, int frequency) {
 			this.asciiVal = asciiVal;
-			this.freq = freq;
+			this.frequency = frequency;
 		}
 
 		private HuffmanNode() {
@@ -159,12 +161,12 @@ public class HuffmanTree {
 		 * return values for debugging purpose.
 		 */
 		public String toString() {
-			return asciiVal + " : " + freq;
+			return asciiVal + " : " + frequency;
 		}
 
 		@Override
 		public int compareTo(HuffmanNode that) {
-			return this.freq - that.freq;
+			return this.frequency - that.frequency;
 		}
 		
 		/**

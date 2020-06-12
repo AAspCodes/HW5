@@ -56,22 +56,43 @@ public class HuffmanTree {
 	 * @param codeInput
 	 */
 	public HuffmanTree(Scanner codeInput) {
-		Map<String, HuffmanNode> nodeMap = new HashMap<String, HuffmanNode>();
 		
+		HuffmanNode root = new HuffmanNode();
+		HuffmanNode node;
 		while ( codeInput.hasNextLine()) {
 			int asciiVal = Integer.parseInt(codeInput.nextLine());
-			String code = codeInput.nextLine();
-			nodeMap.put(code, new HuffmanNode(asciiVal, 0));
-		}
-		String baseCode = "0";
-		HuffmanNode root = new HuffmanNode(0,0);
-		while ( !nodeMap.isEmpty()) {
+			char[] code = codeInput.nextLine().toCharArray();
+			node = root;
 			
+			for (char direction: code) {
+				if (direction == '0') {
+					// go left
+					if (node.left == null) {
+						// make a new branch and continue
+						node.left = new HuffmanNode();
+					} 
+					// traverse to that branch
+					node = node.left;
+						
+				} else {
+					// go right
+					
+					if (node.right == null) {
+						// make a new branch
+						node.right = new HuffmanNode();
+					}
+					// traverse to the right branch
+					node = node.right;
+					
+				}
+			}
+			node.asciiVal = asciiVal;
 		}
-		
-		
-		
+	
+		tree = root;
 	}
+	
+	
 	/**
 	 * Reads bits from the given input stream and writes the corresponding
 	 * characters to the output.  Stops reading when it encounters a character

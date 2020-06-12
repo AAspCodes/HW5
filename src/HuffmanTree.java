@@ -51,60 +51,61 @@ public class HuffmanTree {
 	}
 
 	/**
-	 * Constructs a Huffman tree from the Scanner.
-	 * Assumes the Scanner contains a tree description in standard format.
+	 * Constructs a Huffman tree from the Scanner. Assumes the Scanner contains a
+	 * tree description in standard format.
+	 * 
 	 * @param codeInput
 	 */
 	public HuffmanTree(Scanner codeInput) {
-		
+
 		HuffmanNode root = new HuffmanNode();
 		HuffmanNode node;
-		while ( codeInput.hasNextLine()) {
+		while (codeInput.hasNextLine()) {
 			int asciiVal = Integer.parseInt(codeInput.nextLine());
 			char[] code = codeInput.nextLine().toCharArray();
 			node = root;
-			
-			for (char direction: code) {
+
+			for (char direction : code) {
 				if (direction == '0') {
 					// go left
 					if (node.left == null) {
 						// make a new branch and continue
 						node.left = new HuffmanNode();
-					} 
+					}
 					// traverse to that branch
 					node = node.left;
-						
+
 				} else {
 					// go right
-					
+
 					if (node.right == null) {
 						// make a new branch
 						node.right = new HuffmanNode();
 					}
 					// traverse to the right branch
 					node = node.right;
-					
+
 				}
 			}
 			node.asciiVal = asciiVal;
 		}
-	
+
 		tree = root;
 	}
-	
-	
+
 	/**
 	 * Reads bits from the given input stream and writes the corresponding
-	 * characters to the output.  Stops reading when it encounters a character
-	 * with value equal to eof.  This is a pseudo-eof character, so it should
-	 * not be written to the output file.  Assumes the input stream contains
-	 * a legal encoding of characters for this tree’s Huffman code.
+	 * characters to the output. Stops reading when it encounters a character with
+	 * value equal to eof. This is a pseudo-eof character, so it should not be
+	 * written to the output file. Assumes the input stream contains a legal
+	 * encoding of characters for this tree’s Huffman code.
+	 * 
 	 * @param input
 	 * @param output
 	 * @param eof
 	 */
 	public void decode(BitInputStream input, PrintStream output, int eof) {
-		
+
 		// I think this works, but I can't test it just yet.
 		int bit;
 		HuffmanNode node = tree;
@@ -127,7 +128,7 @@ public class HuffmanTree {
 				}
 			}
 		}
-		
+
 	}
 
 	/**
@@ -145,9 +146,9 @@ public class HuffmanTree {
 			this.asciiVal = asciiVal;
 			this.freq = freq;
 		}
-		
+
 		private HuffmanNode() {
-			this(-1,0);
+			this(-1, 0);
 		}
 
 		public String toString() {
@@ -172,7 +173,7 @@ public class HuffmanTree {
 				}
 			}
 		}
-		
+
 	}
 
 }

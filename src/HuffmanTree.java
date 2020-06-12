@@ -163,7 +163,7 @@ public class HuffmanTree {
 		}
 
 		private void travWrite(PrintStream output, String code) {
-			if (asciiVal != 0) {
+			if (asciiVal >= 0) {
 				output.println(asciiVal);
 				output.println(code);
 			} else {

@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class HuffmanTree {
-	private HuffmanNode tree;
+	private HuffmanNode root;
 
 	/**
 	 * Constructs a Huffman tree using the given array of frequencies where count[i]
@@ -49,7 +49,7 @@ public class HuffmanTree {
 		}
 
 		// assign tree
-		tree = nodeQ.remove();
+		root = nodeQ.remove();
 
 	}
 
@@ -61,14 +61,15 @@ public class HuffmanTree {
 	 */
 	public HuffmanTree(Scanner codeInput) {
 
-		tree = new HuffmanNode();
+		root = new HuffmanNode();
 		HuffmanNode node;
 
 		while (codeInput.hasNextLine()) {
 
 			int asciiVal = Integer.parseInt(codeInput.nextLine());
 			char[] code = codeInput.nextLine().toCharArray();
-			node = tree;
+			
+			node = root;
 
 			for (char direction : code) {
 
@@ -111,7 +112,7 @@ public class HuffmanTree {
 		HuffmanNode node;
 		while (true) {
 			// set node to root
-			node = tree;
+			node = root;
 			// while node is on a branch, exit when a leaf is found
 			while (node.asciiVal == -1) {
 				// traverse left or right depending on the bit value
@@ -132,7 +133,7 @@ public class HuffmanTree {
 	 * Writes the current tree to the given output stream in standard format.
 	 */
 	public void write(PrintStream output) {
-		tree.travWrite(output, "");
+		root.traversalWrite(output, "");
 	}
 
 	private class HuffmanNode implements Comparable<HuffmanNode> {

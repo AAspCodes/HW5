@@ -145,6 +145,10 @@ public class HuffmanTree {
 			this.asciiVal = asciiVal;
 			this.freq = freq;
 		}
+		
+		private HuffmanNode() {
+			this(-1,0);
+		}
 
 		public String toString() {
 			return this.asciiVal + " : " + this.freq;

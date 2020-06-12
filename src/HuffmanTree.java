@@ -49,7 +49,7 @@ public class HuffmanTree {
 		}
 
 		// assign tree
-		this.tree = nodeQ.remove();
+		tree = nodeQ.remove();
 
 	}
 

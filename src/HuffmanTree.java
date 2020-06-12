@@ -13,6 +13,9 @@ public class HuffmanTree {
 	/**
 	 * Constructs a Huffman tree using the given array of frequencies where count[i]
 	 * is the number of occurrences of the character with ASCII value i.
+	 * 
+	 * @param count int array, An array of character frequencies, where their ascii
+	 *              value is their index.
 	 */
 	public HuffmanTree(int[] count) {
 
@@ -77,20 +80,17 @@ public class HuffmanTree {
 
 				} else {
 					// go right
-
 					if (node.right == null) {
 						// make a new branch
 						node.right = new HuffmanNode();
 					}
 					// traverse to the right branch
 					node = node.right;
-
 				}
 			}
+
 			node.asciiVal = asciiVal;
 		}
-
-		tree = root;
 	}
 
 	/**
@@ -146,7 +146,7 @@ public class HuffmanTree {
 		}
 
 		public String toString() {
-			return this.asciiVal + " : " + this.freq;
+			return asciiVal + " : " + freq;
 		}
 
 		@Override

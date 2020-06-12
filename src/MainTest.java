@@ -9,7 +9,7 @@ public class MainTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
-			FileInputStream input = new FileInputStream(new File("test.txt"));
+			FileInputStream input = new FileInputStream(new File("short.text"));
 			int[] count = new int[256];
 			for (;;) {
 				int n = input.read();
@@ -23,6 +23,7 @@ public class MainTest {
 			HuffmanTree t = new HuffmanTree(count);
 			PrintStream output = new PrintStream(new File("short2.code"));
 			t.write(output);
+			output.close();
 		} catch (IOException e) {
 			System.out.println(e);
 		}
@@ -34,6 +35,7 @@ public class MainTest {
 			HuffmanTree t = new HuffmanTree(scan);
 			PrintStream output = new PrintStream(new File("short3.code"));
 			t.write(output);
+			output.close();
 		} catch (IOException e){
 			System.out.println(e);
 			

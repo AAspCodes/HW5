@@ -105,30 +105,24 @@ public class HuffmanTree {
 	 * @param eof
 	 */
 	public void decode(BitInputStream input, PrintStream output, int eof) {
+		HuffmanNode node;
+		while (true) {
+			// set node to root
+			node = tree;
+			// while node is on a branch, exit when a leaf is found
+			while (node.asciiVal == -1) {
+				// traverse left or right depending on the bit value
+				node = (input.readBit() == 0) ? node.left : node.right;
+			}
 
-		// I think this works, but I can't test it just yet.
-		int bit;
-		HuffmanNode node = tree;
-		while ((bit = input.readBit()) >= 0) {
-			// check if at branch
-			if (node.asciiVal == -1) {
-				if (bit == 0) {
-					node = node.left;
-					continue;
-				} else {
-					node = node.right;
-					continue;
-				}
+			if (node.asciiVal == eof) {
+				// break if the end of the file is found
+				break;
 			} else {
-				if (node.asciiVal == eof) {
-					// you found the end of the file
-					break;
-				} else {
-					output.write(node.asciiVal);
-				}
+				// write out the ascii value in the leaf
+				output.write(node.asciiVal);
 			}
 		}
-
 	}
 
 	/**

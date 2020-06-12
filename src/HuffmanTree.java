@@ -61,12 +61,12 @@ public class HuffmanTree {
 	 */
 	public HuffmanTree(Scanner codeInput) {
 
-		HuffmanNode root = new HuffmanNode();
+		tree = new HuffmanNode();
 		HuffmanNode node;
 		while (codeInput.hasNextLine()) {
 			int asciiVal = Integer.parseInt(codeInput.nextLine());
 			char[] code = codeInput.nextLine().toCharArray();
-			node = root;
+			node = tree;
 
 			for (char direction : code) {
 				if (direction == '0') {

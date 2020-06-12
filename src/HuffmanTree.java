@@ -166,8 +166,6 @@ public class HuffmanTree {
 		public int compareTo(HuffmanNode that) {
 			return this.freq - that.freq;
 		}
-
-		private void travWrite(PrintStream output, String code) {
 		
 		/**
 		 * Traverse the tree recursively. When a leaf is found, write out
@@ -178,15 +176,16 @@ public class HuffmanTree {
 		 * @param code
 		 * 		String, 0s and 1s, the path from the root to the current position.
 		 */
+		private void traversalWrite(PrintStream output, String code) {
 			if (asciiVal >= 0) {
 				output.println(asciiVal);
 				output.println(code);
 			} else {
 				if (left != null) {
-					left.travWrite(output, code + "0");
+					left.traversalWrite(output, code + "0");
 				}
 				if (right != null) {
-					right.travWrite(output, code + "1");
+					right.traversalWrite(output, code + "1");
 				}
 			}
 		}

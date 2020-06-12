@@ -21,14 +21,14 @@ public class HuffmanTree {
 
 		Queue<HuffmanNode> nodeQ = new PriorityQueue<HuffmanNode>();
 
-		// assign non zero frequency values from the count array to the priority queue
+		// Assign non zero frequency values from the count array to the priority queue.
 		for (int i = 0; i < count.length; i++) {
 			if (count[i] > 0) {
 				nodeQ.add(new HuffmanNode(i, count[i]));
 			}
 		}
 
-		// add end of file char.
+		// Add end of file char.
 		nodeQ.add(new HuffmanNode(count.length, 1));
 
 		// build tree
@@ -65,7 +65,7 @@ public class HuffmanTree {
 		HuffmanNode node;
 
 		while (codeInput.hasNextLine()) {
-
+			// read values for code file
 			int asciiVal = Integer.parseInt(codeInput.nextLine());
 			char[] code = codeInput.nextLine().toCharArray();
 			
@@ -131,11 +131,17 @@ public class HuffmanTree {
 
 	/**
 	 * Writes the current tree to the given output stream in standard format.
+	 * @param output
+	 * 			PrintStream object for writing to a file.
 	 */
 	public void write(PrintStream output) {
 		root.traversalWrite(output, "");
 	}
-
+	
+	/**
+	 * Node class
+	 * Use to build the tree needed in a Huffman Tree.
+	 */
 	private class HuffmanNode implements Comparable<HuffmanNode> {
 		private HuffmanNode left, right;
 		private int asciiVal, freq;
@@ -148,7 +154,10 @@ public class HuffmanTree {
 		private HuffmanNode() {
 			this(-1, 0);
 		}
-
+		
+		/*
+		 * return values for debugging purpose.
+		 */
 		public String toString() {
 			return asciiVal + " : " + freq;
 		}
@@ -159,6 +168,16 @@ public class HuffmanTree {
 		}
 
 		private void travWrite(PrintStream output, String code) {
+		
+		/**
+		 * Traverse the tree recursively. When a leaf is found, write out
+		 * the asciiVal and the path from the root to the leaf.
+		 * 
+		 * @param output
+		 * 		PrintStream object, for writing to file.
+		 * @param code
+		 * 		String, 0s and 1s, the path from the root to the current position.
+		 */
 			if (asciiVal >= 0) {
 				output.println(asciiVal);
 				output.println(code);

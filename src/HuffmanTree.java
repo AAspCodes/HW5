@@ -3,6 +3,13 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Anthony Asp, Michael Cho
+ * 
+ * HW5 Project for CSC 143.
+ *
+ */
 public class HuffmanTree {
 	private HuffmanNode root;
 

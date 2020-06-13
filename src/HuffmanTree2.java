@@ -104,6 +104,44 @@ public class HuffmanTree2 {
 			node.asciiVal = asciiVal;
 		}
 	}
+	
+	/**
+	 * Constructs a Huffman tree from the given input stream.
+	 * Assumes that the standard bit representation has been
+	 * used for the tree.
+	 * 
+	 * @param input
+	 * 			BitInputStream, 
+	 */
+	public HuffmanTree2(BitInputStream input) {
+		
+	}
+	
+	/**
+	 * Assigns codes for each character of the tree.
+	 * Assumes the array has null values before the method is called.
+	 * Fills in a String for each character in the tree indicating
+	 * its code.
+	 * 
+	 * @param codes
+	 * 			String[],
+	 */
+	public void assign(String[] codes) {
+
+	}
+	
+	
+	/**
+	 * Writes the current tree to the output stream using
+	 * the standard bit representation.
+	 * 
+	 * @param output
+	 * 			BitOutputStream,
+	 */
+	public void writeHeader(BitOutputStream output) {
+		
+	}
+
 	/**
 	 * Reads bits from the given input stream and writes the corresponding
 	 * characters to the output. Stops reading when it encounters a character with

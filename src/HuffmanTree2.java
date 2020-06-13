@@ -254,6 +254,27 @@ public class HuffmanTree2 {
 				}
 			}
 		}
+		
+		private void traversalWrite(BitOutputStream output) {
+			if (asciiVal >= 0) {
+				// found a leaf, write 1
+				output.writeBit(1);
+				// encode the asciiVal
+				write9(output, asciiVal);
+			} else {
+				// on a branch, write a 0
+				output.writeBit(0);
+				
+				if (left != null) {
+					left.traversalWrite(output);
+				}
+				
+				if (right != null) {
+					right.traversalWrite(output);
+				}
+			}
+		}
+		
 		private void write9(BitOutputStream output, int n) {
 		    for (int i = 0; i < 9; i++) {
 		        output.writeBit(n % 2);

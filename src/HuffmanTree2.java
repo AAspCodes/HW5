@@ -242,8 +242,6 @@ public class HuffmanTree2 {
 			}
 		}
 		
-		
-		
 		private void traversalWrite(Map<Integer,String> map, String code) {
 			if (asciiVal >= 0) {
 				map.put(asciiVal, code);

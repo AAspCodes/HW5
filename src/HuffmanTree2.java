@@ -146,7 +146,7 @@ public class HuffmanTree2 {
 	 * 			BitOutputStream,
 	 */
 	public void writeHeader(BitOutputStream output) {
-		
+		root.traversalWrite(output);
 	}
 
 	/**

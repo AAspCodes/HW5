@@ -254,6 +254,14 @@ public class HuffmanTree2 {
 				}
 			}
 		}
+		private void write9(BitOutputStream output, int n) {
+		    for (int i = 0; i < 9; i++) {
+		        output.writeBit(n % 2);
+		        n /= 2;
+		    }
+		}
+		
+		
 	}
 
 }

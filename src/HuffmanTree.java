@@ -148,7 +148,7 @@ public class HuffmanTree {
 	
 	/**
 	 * Node class
-	 * Use to build the tree needed in a Huffman Tree.
+	 * Use to build the tree needed in a HuffmanTree.
 	 */
 	private class HuffmanNode implements Comparable<HuffmanNode> {
 		private HuffmanNode left, right;

@@ -1,4 +1,6 @@
 import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Scanner;
@@ -127,7 +129,12 @@ public class HuffmanTree2 {
 	 * 			String[],
 	 */
 	public void assign(String[] codes) {
-
+		Map<Integer, String> map = new HashMap<Integer, String>();
+		root.traversalWrite(map, "");
+		
+		for (Integer asciiVal: map.keySet()) {
+			codes[asciiVal.intValue()] = map.get(asciiVal);
+		}
 	}
 	
 	
@@ -235,6 +242,20 @@ public class HuffmanTree2 {
 			}
 		}
 		
+		
+		
+		private void traversalWrite(Map<Integer,String> map, String code) {
+			if (asciiVal >= 0) {
+				map.put(asciiVal, code);
+			} else {
+				if (left != null) {
+					left.traversalWrite(map, code + "0");
+				}
+				if (right != null) {
+					right.traversalWrite(map, code + "1");
+				}
+			}
+		}
 	}
 
 }

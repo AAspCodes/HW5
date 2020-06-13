@@ -76,6 +76,7 @@ public class HuffmanTree {
 			asciiVal = Integer.parseInt(codeInput.nextLine());
 			code = codeInput.nextLine().toCharArray();
 			
+			// assign root as starting position
 			node = root;
 
 			for (char direction : code) {

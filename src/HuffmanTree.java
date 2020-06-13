@@ -68,11 +68,13 @@ public class HuffmanTree {
 
 		root = new HuffmanNode();
 		HuffmanNode node;
-
+		int asciiVal;
+		char[] code;
+		
 		while (codeInput.hasNextLine()) {
 			// read values for code file
-			int asciiVal = Integer.parseInt(codeInput.nextLine());
-			char[] code = codeInput.nextLine().toCharArray();
+			asciiVal = Integer.parseInt(codeInput.nextLine());
+			code = codeInput.nextLine().toCharArray();
 			
 			node = root;
 

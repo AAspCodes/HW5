@@ -296,6 +296,49 @@ public class HuffmanTree2 {
 		
 
 		
+		private boolean makeNextLeaf(int depth, int newAsciiVal) {
+			
+			// return false, if both left and right are leafs
+			
+			if (depth > 0) {
+				depth--;
+				
+				
+				if (left == null) {
+					left = new HuffmanNode2();
+				}
+				
+				if (left.asciiVal == -1) {
+					return left.makeNextLeaf(depth, newAsciiVal);
+				} else {
+					if ( right == null ){
+						right = new HuffmanNode2();
+					}
+					
+					if (right.asciiVal == -1) {
+						return right.makeNextLeaf(depth, newAsciiVal);
+					} else {
+						return false;
+					}
+				}
+				
+			} else {
+				// reached max depth
+				if (left == null) {
+					// make new leaf with ascii val
+					left = new HuffmanNode2(newAsciiVal, 0);
+				} else if (right == null) {
+					right = new HuffmanNode2(newAsciiVal, 0);
+				} else {
+					// no where to put the leaf here, bubble up and try a different path.
+					return false;
+				}
+				
+				
+			}
+			
+			return true;
+		}
 	}
 
 }

@@ -339,6 +339,40 @@ public class HuffmanTree2 {
 			
 			return true;
 		}
+		
+		private void buildTreeFromBitInputStream(BitInputStream input) {
+			/**
+			 * base cases:
+			 * 
+			 * travese into a leaf, go up, try to go right
+			 * 
+			 * try to place a new leaf/branch on a leaf.
+			 * 
+			 * 
+			 * recursive back tracking
+			 */
+			int bit;
+			while(true) {
+				// how to handle the -1 bit....??
+				int depth = 0;
+				while ((bit = input.readBit()) == 0) {
+					// grab depth
+					
+					depth++;
+				}
+				if (bit == -1) {
+					break;
+				}
+				int newAsciiVal = read9(input);
+
+				makeNextLeaf(depth,newAsciiVal);
+				
+				
+			}
+			
+		
+		}
+		
 	}
 
 }

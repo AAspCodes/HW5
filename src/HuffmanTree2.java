@@ -282,6 +282,17 @@ public class HuffmanTree2 {
 		    }
 		}
 		
+		private int read9(BitInputStream input) {
+			int multiplier = 1;
+		    int sum = 0;
+		    for (int i = 0; i < 9; i++) {
+		        sum += multiplier * input.readBit();
+		        multiplier *= 2;
+		    }
+		    return sum;
+		}
+		
+
 		
 	}
 

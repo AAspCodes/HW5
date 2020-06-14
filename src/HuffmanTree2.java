@@ -116,7 +116,9 @@ public class HuffmanTree2 {
 	 * 			BitInputStream, 
 	 */
 	public HuffmanTree2(BitInputStream input) {
-		
+		// create root
+		root = new HuffmanNode2();
+		root.buildTreeFromBitInputStream(input);
 	}
 	
 	/**
